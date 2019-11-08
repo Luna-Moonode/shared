@@ -1,0 +1,142 @@
+#login {
+    background-color: beige;
+    width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    margin-top: -200px;
+    display: flex;
+}
+
+#login .loginArea {
+    width: 350px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+    padding-bottom: 30px;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
+
+#login form {
+    margin: auto;
+    text-align: right;
+    font-size: 15px;
+}
+
+#login span {
+    position: relative;
+    bottom: 3px;
+}
+
+#login input {
+    width: 300px;
+    height: 30px;
+    font-size: 25px;
+    border: 0;
+    border-radius: 10px;
+}
+
+#login input.pwd {
+    margin-top: 30px;
+}
+
+#login .loginBtns {
+    width: 100%;
+    display: flex;
+}
+
+#login .loginBtn {
+    border: 0;
+    margin: 2.5px auto;
+    display: inline-block;
+    width: 75px;
+    height: 25px;
+    border-radius: 20px;
+    font-size: 20px;
+    line-height: 25px;
+    color: white;
+    background-color: gainsboro;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 1s, color 1s;
+}
+
+#login .loginBtn:hover {
+    background-color: black;
+    color: gold;
+}
+
+#register {
+    border-radius: 20px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    margin: -250px 0 0 -375px;
+    display: flex;
+    width: 750px;
+    height: 500px;
+    overflow: hidden;
+
+}
+
+.inactiveRegister {
+    top: 200%;
+    transform: scale(0);
+    transition: top 0.5s, transform 0.5s;
+}
+
+.activeRegister {
+    top: 50%;
+    transform: scale(1);
+    transition: top 0.5s, transform 0.5s;
+}
+
+#register .registerArea {
+    width: 369px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+}
+
+#register form {
+    text-align: right;
+    margin: auto;
+    font-size: 15px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+#register input {
+    margin: auto;
+    width: 300px;
+    height: 30px;
+}
+
+#register p {
+    text-align: center;
+}
+
+#register button {
+    margin-left: 50px;
+    width: 80px;
+    height: 40px;
+    margin-top: 30px;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 100;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.6s, color 0.6s;
+}
+
+#register button:hover {
+    background-color: dimgrey;
+    color: beige;
+}
