@@ -7,9 +7,19 @@
 </head>
 <body>
     <h1>Hello World!</h1>
-    {% csrf_token %}
+
     <input type="text" id="input">
-    <button id="btn" type='submit'>提交</button>
+    <button id="btn">提交</button>
+
+
+    <form action="/ajax1/" method="post">
+        {% csrf_token %}
+        <input type="text" name="req">
+        <input type="submit">
+    </form>
+
+
+
     <script src="/static/JS/jquery.min.js"></script>
     <script src='/static/JS/Home.js'></script>
 </body>

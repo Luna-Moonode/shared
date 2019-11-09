@@ -20,5 +20,6 @@ from myApp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('ajax/', views.ajax)
+    path('ajax/', views.ajax),
+    path('ajax1/', views.ajax1)
 ]
