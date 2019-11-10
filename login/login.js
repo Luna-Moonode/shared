@@ -99,12 +99,20 @@ function validateUsername() {
     }, () => {
         let feedback = JSON.parse(xhr.request.responseText)['username_length'];
         if (!feedback) {
-            username.style.color = '用户名格式不正确！应为...';
+            username.innerHTML = '用户名长度应为...';
+            username.style.color = 'red';
         } else {
             username_status = 1;
             username.innerHTML = '通过';
         }
         feedback = JSON.parse(xhr.request.responseText)['username_format'];
+        if (!feedback) {
+            username.style.color = 'red';
+            username.innerHTML = '用户名应为字母或数字的组合...';
+        } else {
+            username_status = 1;
+            username.innerHTML = '通过';
+        }
     })
 }
 
