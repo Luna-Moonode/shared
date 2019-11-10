@@ -9,7 +9,7 @@ def index(request):
 
 def ajax(request):
     if request.method == 'POST':
-        res = request.POST.get("req")
+        res = request.POST.get("testVariable")
         return HttpResponse(res)
     elif request.method == 'GET':
         return HttpResponse('method: get')
