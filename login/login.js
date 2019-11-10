@@ -137,11 +137,11 @@ function remind_pwdConfirm() {
 
 // addEventListener
 username_input.onfocus = remind_username;
-username_input.onchange = validateUsername;
+username_input.onkeydown = validateUsername;
 pwd_input.onfocus = remind_password;
-pwd_input.onchange = validateInput('password', 'password_format');
+pwd_input.onkeydown = validateInput('password', 'password_format');
 pwdConfirm_input.onfocus = remind_pwdConfirm;
-pwdConfirm_input.onchange = validateInput('passwordConfirm','password_confirm');
+pwdConfirm_input.onkeydown = validateInput('passwordConfirm','password_confirm');
 
 // 通过判断username_status和password_status两个状态值来验证表单, 每200毫秒验证一次
 setInterval(() => {
