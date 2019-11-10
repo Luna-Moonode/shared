@@ -11,7 +11,7 @@ let username = document.getElementById('username'),
     username_input = document.getElementById('username_input'),
     pwd_input = document.getElementById('pwd_input'),
     pwdConfirm_input = document.getElementById('pwdConfirm_input'),
-    csrf_token = document.getElementsByName('hidden')[0].value,
+    // csrf_token = document.getElementsByName('hidden')[0].value,
     registerSubmit = document.getElementById('registerSubmit'),
     username_status = 0,
     password_status = 0;
@@ -116,13 +116,13 @@ function remind_username() {
 }
 
 function remind_password() {
-    if (pwd_input == '') {
+    if (pwd_input.value == '') {
         password.innerHTML = '密码必须为。。。';
     }
 }
 
 function remind_pwdConfirm() {
-    if (pwdConfirm_input == '') {
+    if (pwdConfirm_input.value == '') {
         passwordConfirm.innerHTML = '两次密码须一致';
     }
 }
