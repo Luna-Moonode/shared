@@ -71,6 +71,7 @@ function XHR() {
 // 一劳永逸的方法validateInput(),（只适用于密码，呵呵）
 function validateInput(req, res) {
     function validate() {
+        password_status = 0;
         let xhr = new XHR();
         xhr.post('/login/register-passed/', {
             [req]: req,
@@ -91,15 +92,16 @@ function validateInput(req, res) {
 
 function validateUsername() {
     // 用户名是否通过？未通过，是哪种类型？格式错误\用户名已存在
-    // 判断的变量: username_length(长度), username_format(格式)
+    // 判断的变量: username_occupation(长度), username_format(格式)
+    username_status = 0;
     let xhr = new XHR();
     xhr.post('/login/register-passed/', {
         'username': username_input.value,
         'csrfmiddlewaretoken': csrf_token
     }, () => {
-        let feedback = JSON.parse(xhr.request.responseText)['username_length'];
+        let feedback = JSON.parse(xhr.request.responseText)['username_occupation'];
         if (!feedback) {
-            username.innerHTML = '用户名长度应为...';
+            username.innerHTML = '用户名已存在';
             username.style.color = 'red';
         } else {
             username_status = 1;
@@ -108,7 +110,7 @@ function validateUsername() {
         feedback = JSON.parse(xhr.request.responseText)['username_format'];
         if (!feedback) {
             username.style.color = 'red';
-            username.innerHTML = '用户名应为字母或数字的组合...';
+            username.innerHTML = '用户名应为...';
         } else {
             username_status = 1;
             username.innerHTML = '通过';
