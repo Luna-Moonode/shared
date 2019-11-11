@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/CSS/reset.css">
+    <link rel="stylesheet" href="/static/CSS/login.css">
+</head>
+
+<body>
+    <div id="login">
+        <div class="loginArea">
+            <form action="/login/" method="post">
+                {% csrf_token %}
+                <span>用户名</span>
+                <input type="text" name="username">
+                <span>密码</span>
+                <input type="password" class="pwd" name="userpwd">
+                <div class="loginBtns">
+                    <button class="loginBtn" type="submit">登录</button>
+                    <div class="loginBtn" id="registerBtn" onclick="register()">注册</div>
+            </form>
+        </div>
+    </div>
+    <div id="register" class="inactiveRegister">
+        <div class="registerArea">
+            <form action="register/" method="post">
+                {% csrf_token %}
+                <span>用户名</span>
+                <input type="text" name="username"><br>
+                <span>密码</span>
+                <input type="password" class="pwd" name="password"><br>
+                <span>确认密码</span>
+                <input type="password" class="pwd" name="passwordConfirm">
+                <p><button type="submit">提交</button></p>
+            </form>
+        </div>
+    </div>
+    <script src="/static/JS/login.js"></script>
+</body>
+
+</html>
