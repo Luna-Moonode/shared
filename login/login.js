@@ -4,6 +4,7 @@ let registerArea = document.getElementById("register");
 function register() {
     registerArea.className = "activeRegister";
 }
+
 // declarations
 let username = document.getElementById('username'),
     password = document.getElementById('password'),
@@ -11,7 +12,7 @@ let username = document.getElementById('username'),
     username_input = document.getElementById('username_input'),
     pwd_input = document.getElementById('pwd_input'),
     pwdConfirm_input = document.getElementById('pwdConfirm_input'),
-    // csrf_token = document.getElementsByName('hidden')[0].value,
+    csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value,
     registerSubmit = document.getElementById('registerSubmit'),
     username_status = 0,
     password_status = 0;
@@ -73,16 +74,18 @@ function validateInput(req, res) {
     function validate() {
         password_status = 0;
         let xhr = new XHR();
-        xhr.post('/login/register-passed/', {
+        xhr.post('/login/register/', {
             [req]: req,
             'csrfmiddlewaretoken': csrf_token
         }, () => {
             let feedback = JSON.parse(xhr.request.responseText)[res];
-            if (!feedback) {
+            if (feedback == 0) {
                 eval(req).style.color = 'red';
+                eval(req).innerHTML = eval(req).innerHTML + '❌';
             } else {
                 password_status = 1;
-                eval(req).innerHTML = '通过';
+                eval(req).style.color = 'white';
+                eval(req).innerHTML = '通过✅';
             }
         })
     }
@@ -92,28 +95,25 @@ function validateInput(req, res) {
 
 function validateUsername() {
     // 用户名是否通过？未通过，是哪种类型？格式错误\用户名已存在
-    // 判断的变量: username_occupation(长度), username_format(格式)
+    // 判断的变量: username_occupation(是否存在), username_format(格式)
     username_status = 0;
     let xhr = new XHR();
-    xhr.post('/login/register-passed/', {
+    xhr.post('/login/register/', {
         'username': username_input.value,
         'csrfmiddlewaretoken': csrf_token
     }, () => {
-        let feedback = JSON.parse(xhr.request.responseText)['username_occupation'];
-        if (!feedback) {
-            username.innerHTML = '用户名已存在';
+        let feedback_occupation = JSON.parse(xhr.request.responseText)['username_occupation'];
+        let feedback_format = JSON.parse(xhr.request.responseText)['username_format'];
+        if (feedback_format == 0) {
             username.style.color = 'red';
+            username.innerHTML = '用户名应为...❌';
+        } else if (feedback_occupation == 0) {
+            username.style.color = 'red';
+            username.innerHTML = '用户名已存在❌';
         } else {
             username_status = 1;
-            username.innerHTML = '通过';
-        }
-        feedback = JSON.parse(xhr.request.responseText)['username_format'];
-        if (!feedback) {
-            username.style.color = 'red';
-            username.innerHTML = '用户名应为...';
-        } else {
-            username_status = 1;
-            username.innerHTML = '通过';
+            username.style.color = 'white';
+            username.innerHTML = '通过✅';
         }
     })
 }
@@ -121,18 +121,21 @@ function validateUsername() {
 
 function remind_username() {
     if (username_input.value == '') {
+        username.style.color = 'white';
         username.innerHTML = '用户名必须为。。。';
     }
 }
 
 function remind_password() {
     if (pwd_input.value == '') {
+        password.style.color = 'white';
         password.innerHTML = '密码必须为。。。';
     }
 }
 
 function remind_pwdConfirm() {
     if (pwdConfirm_input.value == '') {
+        password.style.color = 'white';
         passwordConfirm.innerHTML = '两次密码须一致';
     }
 }
@@ -154,4 +157,4 @@ setInterval(() => {
         registerSubmit.disabled = 'disabled';
         registerSubmit.className = 'locked';
     }
-}, 200);
+}, 100);
