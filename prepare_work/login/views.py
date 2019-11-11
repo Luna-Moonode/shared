@@ -63,8 +63,8 @@ def register_check(request):
         responnse = {
             "username_length": username_length,
             "password_confirm": password_confirm,
-            "username-format": username_strength,
-            "password-format": password_strength,
+            "username_format": username_strength,
+            "password_format": password_strength,
                 # "sex": sex
         }
         return HttpResponse(json.dumps(responnse))

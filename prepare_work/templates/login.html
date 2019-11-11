@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +13,12 @@
 <body>
     <div id="login">
         <div class="loginArea">
-            <form action="/login/" method="post">
+            <form action="留给金神填写" method="post">
                 {% csrf_token %}
                 <span>用户名</span>
-                <input type="text" name="username">
+                <input type="text" name="...">
                 <span>密码</span>
-                <input type="password" class="pwd" name="userpwd">
+                <input type="password" class="pwd" name="...">
                 <div class="loginBtns">
                     <button class="loginBtn" type="submit">登录</button>
                     <div class="loginBtn" id="registerBtn" onclick="register()">注册</div>
@@ -26,15 +27,18 @@
     </div>
     <div id="register" class="inactiveRegister">
         <div class="registerArea">
-            <form action="register/" method="post">
-                {% csrf_token %}
+            <form action="留给金神填写" method="post">
+                 {% csrf_token %}
                 <span>用户名</span>
-                <input type="text" name="username"><br>
+                <input type="text" name="..." id="username_input"><br>
+                <div id="username"></div>
                 <span>密码</span>
-                <input type="password" class="pwd" name="password"><br>
+                <input type="password" class="pwd" name="..." id="pwd_input"><br>
+                <div id="password"></div>
                 <span>确认密码</span>
-                <input type="password" class="pwd" name="passwordConfirm">
-                <p><button type="submit">提交</button></p>
+                <input type="password" class="pwd" name="..." id="pwdConfirm_input">
+                <div id="passwordConfirm"></div>
+                <p><button type="submit" id="registerSubmit">提交</button></p>
             </form>
         </div>
     </div>
