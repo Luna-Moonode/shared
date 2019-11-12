@@ -58,7 +58,7 @@ function XHR() {
         }
         this.request.open('get', url + '?' + req);
         this.request.onreadystatechange = () => {
-            if (this.request.status == 200) {
+            if (this.request.readyState == 4 && this.request.status == 200) {
                 callback();
             } else {
                 err();

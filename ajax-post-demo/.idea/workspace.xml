@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd35fc5c-3d8c-4b94-a23b-99835e45f54b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myApp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/myApp/JS/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/myApp/JS/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/../login/login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../login/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../prepare_work/static/login/JS/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../prepare_work/static/login/JS/login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -94,6 +92,7 @@
       <workItem from="1573194015460" duration="10131000" />
       <workItem from="1573319908081" duration="6248000" />
       <workItem from="1573349865203" duration="466000" />
+      <workItem from="1573568337225" duration="1468000" />
     </task>
     <servers />
   </component>

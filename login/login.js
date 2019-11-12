@@ -91,7 +91,7 @@ function validateInput(req, res) {
     }
     return validate;
 }
-// log：此函数可能出现找不到req, res值的问题, 联调时再看效果
+
 
 function validateUsername() {
     // 用户名是否通过？未通过，是哪种类型？格式错误\用户名已存在
@@ -148,7 +148,7 @@ pwd_input.onkeydown = validateInput('password', 'password_format');
 pwdConfirm_input.onfocus = remind_pwdConfirm;
 pwdConfirm_input.onkeydown = validateInput('passwordConfirm','password_confirm');
 
-// 通过判断username_status和password_status两个状态值来验证表单, 每200毫秒验证一次
+// 通过判断username_status和password_status两个状态值来验证表单, 100毫秒验证一次
 setInterval(() => {
     if (username_status && password_status) {
         registerSubmit.removeAttribute('disabled');

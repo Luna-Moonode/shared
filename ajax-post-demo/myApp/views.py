@@ -12,7 +12,8 @@ def ajax(request):
         res = request.POST.get("testVariable")
         return HttpResponse(res)
     elif request.method == 'GET':
-        return HttpResponse('method: get')
+        res = request.GET.get('testVariable')
+        return HttpResponse(res)
 
 
 def ajax1(request):
