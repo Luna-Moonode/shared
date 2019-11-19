@@ -16,6 +16,11 @@ let vm_header = new Vue({
             vm_header.nav1 = false;
             vm_header.nav2 = false;
             vm_header['nav' + e.target.id.match(/\d+/)[0]] = true;
+        },
+        mouseleaveli(e) {
+            vm_header.nav0 = true;
+            vm_header.nav1 = false;
+            vm_header.nav2 = false;
         }
     }
 });

@@ -16,9 +16,9 @@
         <div class="nav">
             <ul>
                 <div class="underline" :class="[{nav0: nav0}, {nav1: nav1}, {nav2: nav2}]"></div>
-                <li id="header-li-0" @mouseenter="mouseenterli">首页</li>
-                <li id="header-li-1" @mouseenter="mouseenterli">时间轴</li>
-                <li id="header-li-2" @mouseenter="mouseenterli">关于</li>
+                <li id="header-li-0" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">首页</li>
+                <li id="header-li-1" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">时间轴</li>
+                <li id="header-li-2" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">关于</li>
             </ul>
         </div>
     </div>
