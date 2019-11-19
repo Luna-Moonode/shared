@@ -12,15 +12,15 @@ let vm_header = new Vue({
     },
     methods: {
         mouseenterli(e) {
-            vm_header.nav0 = false;
-            vm_header.nav1 = false;
-            vm_header.nav2 = false;
-            vm_header['nav' + e.target.id.match(/\d+/)[0]] = true;
+            this.nav0 = false;
+            this.nav1 = false;
+            this.nav2 = false;
+            this['nav' + e.target.id.match(/\d+/)[0]] = true;
         },
         mouseleaveli(e) {
-            vm_header.nav0 = true;
-            vm_header.nav1 = false;
-            vm_header.nav2 = false;
+            this.nav0 = true;
+            this.nav1 = false;
+            this.nav2 = false;
         }
     }
 });
