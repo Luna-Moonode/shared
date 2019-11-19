@@ -22,8 +22,11 @@ let username = document.getElementById('username'),
 function XHR() {
     this.request = null;
     this._createRequest = function createRequest() {
-        this.request = new XMLHttpRequest();
-        // 这地方可以做一下兼容
+        if (window.XMLHttpRequest) {
+            this.request = new XMLHttpRequest();
+        } else {
+            this.request = new ActiveXObject('Microsoft.XMLHTTP');
+        }
     };
     this.post = function post(url, object, callback, err = () => {}) {
         this._createRequest();

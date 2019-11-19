@@ -83,7 +83,6 @@ def register_check(request):
                 "password_confirm": password_confirm,
                 "username_format": username_strength,
                 "password_format": password_strength,
-
                 # "sex": sex
             }
         return HttpResponse(json.dumps(response))
@@ -144,9 +143,7 @@ def login_check(request):
         userpwd = request.POST.get("userpwd", None)
         if username and userpwd:
             try:
-
                 a = Register_parts.objects.get(username=username)
-
             except:
                 return HttpResponse("Not registered")
             if userpwd == a.userpwd:

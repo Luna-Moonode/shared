@@ -1,0 +1,55 @@
+body {
+    background-image: url(../img/homeback.png);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+#header {
+    height: 0.725rem;
+    font-size: 0.24rem;
+    font-family: Source Han Serif CN; /* 没有这个字体，要现下 */ 
+    font-weight: 500;
+    color: #FBFAFA;
+}
+
+#header .nav {
+    margin: 0 auto;
+    width: 3.72rem;
+}
+
+#header .nav ul {
+    position: relative;
+    margin-top: 0.34rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header .nav ul li {
+    height: 0.35rem;
+    line-height: 0.35rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+#header .nav ul .underline {
+    position: absolute;
+    margin-top: 0.34rem;
+    height: 0;
+    width: 0.78rem;
+    border: 0.02rem solid #FAF5CF;
+}
+
+#header .nav ul .nav0 {
+    margin-left: -0.17rem;
+    transition: margin-left 0.3s;
+}
+
+#header .nav ul .nav1 {
+    margin-left: 1.45rem;
+    transition: margin-left 0.3s;
+}
+
+#header .nav ul .nav2 {
+    margin-left: 3.1rem;
+    transition: margin-left 0.3s;
+}

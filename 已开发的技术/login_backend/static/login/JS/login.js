@@ -10,8 +10,8 @@ let username = document.getElementById('username'),
     password = document.getElementById('password'),
     passwordConfirm = document.getElementById('passwordConfirm'),
     username_input = document.getElementById('username_input'),
-    password_input = document.getElementById('pwd_input'),
-    passwordConfirm_input = document.getElementById('pwdConfirm_input'),
+    pwd_input = document.getElementById('pwd_input'),
+    pwdConfirm_input = document.getElementById('pwdConfirm_input'),
     csrf_token = document.getElementsByName('csrfmiddlewaretoken')[0].value,
     registerSubmit = document.getElementById('registerSubmit'),
     username_status = 0,
@@ -22,11 +22,13 @@ let username = document.getElementById('username'),
 function XHR() {
     this.request = null;
     this._createRequest = function createRequest() {
-        this.request = new XMLHttpRequest();
-        // 这地方可以做一下兼容
+        if (window.XMLHttpRequest) {
+            this.request = new XMLHttpRequest();
+        } else {
+            this.request = new ActiveXObject('Microsoft.XMLHTTP');
+        }
     };
-    this.post = function post(url, object, callback, err = () => {
-    }) {
+    this.post = function post(url, object, callback, err = () => {}) {
         this._createRequest();
         this.request.open('post', url);
         this.request.onreadystatechange = () => {
@@ -47,8 +49,7 @@ function XHR() {
         this.request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         this.request.send(req);
     };
-    this.get = function get(url, object, callback, err = () => {
-    }) {
+    this.get = function get(url, object, callback, err = () => {}) {
         this._createRequest();
         let req = '';
         for (attr in object) {
@@ -70,46 +71,30 @@ function XHR() {
     }
 }
 
-function validatePassword() {
-    password_status = 0;
-    let xhr = new XHR();
-    xhr.post('/login/register/', {
-        'password': password_input.value,
-        'csrfmiddlewaretoken': csrf_token
-    }, () => {
-        let feedback = JSON.parse(xhr.request.responseText)['password_format'];
-        if (feedback == 0) {
-            password.style.color = 'red';
-            password.innerHTML = '密码格式不正确❌';
-        } else {
-            password.style.color = 'white';
-            password.innerHTML = '通过✅';
-        }
-    });
-    if (passwordConfirm_input.value != '') {
-        validatePasswordConfirm();
+
+// 一劳永逸的方法validateInput(),（只适用于密码，呵呵）
+function validateInput(req, res) {
+    function validate() {
+        password_status = 0;
+        let xhr = new XHR();
+        xhr.post('/login/register/', {
+            [req]: req,
+            'csrfmiddlewaretoken': csrf_token
+        }, () => {
+            let feedback = JSON.parse(xhr.request.responseText)[res];
+            if (feedback == 0) {
+                eval(req).style.color = 'red';
+                eval(req).innerHTML = eval(req).innerHTML + '❌';
+            } else {
+                password_status = 1;
+                eval(req).style.color = 'white';
+                eval(req).innerHTML = '通过✅';
+            }
+        })
     }
+    return validate;
 }
 
-function validatePasswordConfirm() {
-    password_status = 0;
-    let xhr = new XHR();
-    xhr.post('/login/register/', {
-        'password': password_input.value,
-        'passwordConfirm': passwordConfirm_input.value,
-        'csrfmiddlewaretoken': csrf_token
-    }, () => {
-        let feedback = JSON.parse(xhr.request.responseText)['password_confirm'];
-        if (feedback == 0) {
-            passwordConfirm.style.color = 'red';
-            passwordConfirm.innerHTML = '两次密码不一致❌';
-        } else {
-            password_status = 1;
-            passwordConfirm.style.color = 'white';
-            passwordConfirm.innerHTML = '通过✅';
-        }
-    })
-}
 
 function validateUsername() {
     // 用户名是否通过？未通过，是哪种类型？格式错误\用户名已存在
@@ -145,14 +130,14 @@ function remind_username() {
 }
 
 function remind_password() {
-    if (password_input.value == '') {
+    if (pwd_input.value == '') {
         password.style.color = 'white';
         password.innerHTML = '密码必须为。。。';
     }
 }
 
 function remind_pwdConfirm() {
-    if (passwordConfirm_input.value == '') {
+    if (pwdConfirm_input.value == '') {
         password.style.color = 'white';
         passwordConfirm.innerHTML = '两次密码须一致';
     }
@@ -160,11 +145,11 @@ function remind_pwdConfirm() {
 
 // addEventListener
 username_input.onfocus = remind_username;
-username_input.onkeydown = () => {setTimeout(validateUsername, 1);};
-password_input.onfocus = remind_password;
-password_input.onkeydown = () => {setTimeout(validatePassword, 1);};
-passwordConfirm_input.onfocus = remind_pwdConfirm;
-passwordConfirm_input.onkeydown = () => {setTimeout(validatePasswordConfirm, 1);};
+username_input.onkeydown = validateUsername;
+pwd_input.onfocus = remind_password;
+pwd_input.onkeydown = validateInput('password', 'password_format');
+pwdConfirm_input.onfocus = remind_pwdConfirm;
+pwdConfirm_input.onkeydown = validateInput('passwordConfirm','password_confirm');
 
 // 通过判断username_status和password_status两个状态值来验证表单, 100毫秒验证一次
 setInterval(() => {
