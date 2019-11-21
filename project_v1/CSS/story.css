@@ -1,0 +1,67 @@
+body {
+    background-image: url(../img/dyht.png);
+    background-size: 100% 17.06rem;
+    background-attachment: fixed;
+    background-position-y: -6.26rem;
+    overflow: hidden;
+}
+
+#storyboard {
+    position: relative;
+    margin-top: 8.04rem;
+    height: 2.76rem;
+    background: #D13518;
+    font-size: 0.50rem;
+    font-family: SourceHanSerifCN-Medium;
+    color: #FBFAFA;
+}
+
+#storyboard .triangle {
+    position: absolute;
+    top: -0.74rem;
+    left: 15.78rem;
+    width: 0;
+    height: 0;
+    border-width: 0 0.525rem 0.74rem 0.525rem;
+    border-color: transparent transparent #942410 transparent;
+    border-style: solid;
+}
+
+#storyboard p {
+    position: absolute;
+}
+
+#storyboard span {
+    font-size: 0.35rem;
+    margin-left: 1.5rem;
+}
+
+#storyboard .title {
+    height: 1.38rem;
+    background: linear-gradient(180deg, rgba(136, 34, 15, 1) 0%, rgba(209, 53, 24, 0.01) 100%);
+    opacity: 0.87;
+}
+
+#storyboard .textarea {
+    height: 1.38rem;
+}
+
+#storyboard .title .firsttitle {
+    top: 0.47rem;
+    left: 2rem;
+}
+
+#storyboard .textarea .firsttext {
+    bottom: 0.67rem;
+    left: 2rem;
+}
+
+#storyboard .title .nexttitle {
+    left: 0.13rem;
+    top: 0.47rem;
+}
+
+#storyboard .textarea .nexttext {
+    left: 1.89rem;
+    bottom: 0.67rem;
+}
