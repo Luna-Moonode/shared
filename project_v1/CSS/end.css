@@ -1,0 +1,25 @@
+body {
+    background-image: url(../img/background.png);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+#wrapper {
+    width: 5.81rem;
+    height: 10.8rem;
+    margin-left: 2.37rem;
+    border: 1px solid black;
+}
+
+#wrapper .theend {
+    font-family: French Script MT;
+}
+
+#wrapper .name {
+
+}
+
+#wrapper .button {
+
+}

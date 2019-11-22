@@ -23,3 +23,5 @@ function alterText(textArr) {
 
 // TODO:给storyboard加点击事件，点击后出发altertext()切换
 // 注意我写了两种class，第一次和非第一次，两中class left值不一样，需要做一下切换
+
+// yi ge zi 39
