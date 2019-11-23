@@ -1,4 +1,15 @@
 # shared
+log #2019.11.23 04:00 mwd
+
+    本次改动：
+        1.增加了finalpage和end
+        2.finalpage中与后端交互的API
+        
+    TODO:
+        1.首页
+        2.时间轴
+        3.游戏
+        
 log #2019.11.22 01:58 mwd
 
     本次改动：
