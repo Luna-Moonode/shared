@@ -8,7 +8,7 @@ let vm_rank = new Vue({
 let dataCount = 0; // 数据的条数
 let getRankData = () => {
         let xhr = new XHR();
-        xhr.get('rank/', {
+        xhr.get('api/rank/', {
             // 'username': username
         }, () => {
             let res = JSON.parse(xhr.response);

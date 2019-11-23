@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Final</title>
+    <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/finalpage.css">
+    <script src="./JS/utils/utilities.js"></script>
+    <script src="./JS/utils/vue.js"></script>
+    <script src="./JS/utils/jquery.min.js"></script>
+    <script src="./JS/utils/html2canvas.js"></script>
+    <script src="./JS/utils/canvas2image.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="content">
+            <div class="textarea">
+                <!-- 链接待填写！ -->
+                <a href="">重新开始</a>
+                <a href="">排行榜</a>
+                <a href="">时间轴</a>
+            </div>
+            <!-- img是需要后端数据来改变的，现在先弄一个静态的 -->
+            <div class="imgarea" id="imgarea">
+                <!-- 动态改变的background -->
+                <img :src="bgimgsrc" alt="" class="bgimg">
+                <div class="left">
+                    <p>{{ username }}的前世是</p>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li>
+                            <span class="text">我的分数</span>
+                            <!-- 动态改变的分数 -->
+                            <span class="score">{{ score }}</span>
+                        </li>
+                        <li>
+                            <span class="text">我的排行</span>
+                            <!-- 动态改变的排行 -->
+                            <span class="score">{{ rank }}</span>
+                        </li>
+                    </ul>
+                    <span class="bottomp">扫码查看你的前世今生</span>
+
+                    <img src="./img/qrcode.png" alt="" id="innerqrcode">
+                </div>
+            </div>
+            <div class="squarearea">
+                <div :style="rightimgsrc_1" id="1"></div>
+                <div :style="rightimgsrc_2" id="2"></div>
+                <div :style="rightimgsrc_3" id="3"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="download">
+        <div>点击下载图片</div>
+    </div>
+    <script src="./JS/finalpage.js"></script>
+</body>
+
+</html>

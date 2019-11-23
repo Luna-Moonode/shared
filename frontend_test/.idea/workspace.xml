@@ -11,6 +11,15 @@
   <component name="ProjectId" id="1TsxXNOm5KpicDzi8gWu5esmHBi" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/img" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,6 +70,12 @@
       <option name="presentableId" value="Default" />
       <updated>1574262642937</updated>
       <workItem from="1574262644051" duration="2757000" />
+      <workItem from="1574308954524" duration="1830000" />
+      <workItem from="1574418363116" duration="1362000" />
+      <workItem from="1574430713950" duration="267000" />
+      <workItem from="1574431281575" duration="9547000" />
+      <workItem from="1574473736001" duration="1433000" />
+      <workItem from="1574504102862" duration="2314000" />
     </task>
     <servers />
   </component>

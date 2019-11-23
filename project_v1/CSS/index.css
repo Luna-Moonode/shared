@@ -1,10 +1,23 @@
 @import './font.css';
 
+html{
+	width: 100%;
+	height: 100%;
+}
+
 body {
+	top: 0;
+	width: 100%;
+	height: 100%;
     background-image: url(../img/homeback.png);
     background-size: 100% 100%;
     background-attachment: fixed;
     overflow: hidden;
+}
+
+.bg-blur{
+	backdrop-filter : blur(0.15rem);
+	background-color: rgba(211,211,211,0.253);
 }
 
 #header {
@@ -13,6 +26,24 @@ body {
     font-family: SourceHanSerifCN-Medium;
     font-weight: 500;
     color: #FBFAFA;
+}
+
+#header #guoman-list{
+	width:0.96rem;
+	height:0.35rem;
+	font-size:0.24rem;
+	font-family:SourceHanSerifCN-Medium;
+	font-weight:500;
+	line-height:0.36rem;
+	color:rgba(255,255,255,1);
+	opacity:1;
+	position: absolute;
+	left: 1.52rem;
+	top: 0.37rem;
+}
+
+#guoman-list:hover{
+	cursor: pointer;
 }
 
 #header .nav {
@@ -55,4 +86,95 @@ body {
 #header .nav ul .nav2 {
     margin-left: 3.1rem;
     transition: margin-left 0.3s;
+}
+
+.guoman-wrapper{
+	font-size:0.24rem;
+	font-family:SourceHanSerifCN-Medium;
+	color:rgba(255,255,255,1);
+	font-weight:500;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.guoman-wrapper .recommend p{
+	width:0.48rem;
+	height:0.35rem;
+	line-height:0.36rem;
+	opacity:1;
+	position: absolute;
+	left: 1.52rem;
+	top: 1.56rem;
+}
+
+.guoman-wrapper .recommend-list{
+	height: 4.16rem;
+	position: absolute;
+	left: 0.84rem;
+	top: 1.89rem;
+}
+
+.guoman-wrapper .all-list{
+	height: 4.16rem;
+	position: absolute;
+	left: 0.84rem;
+	top: 6.33rem;
+}
+
+.guoman-wrapper .recommend-list li, .guoman-wrapper .all-list li{
+	width: 2.49rem;
+	height: 3.56rem;
+	/* background-color: #696969; */
+	float: left;
+	/* margin-right: 0.29rem; */
+	padding: 0.3rem ;
+	position: relative;
+}
+
+.guoman-wrapper .all-list li{
+	margin-bottom: 0.3rem;
+}
+
+.guoman-wrapper .recommend-list img, .guoman-wrapper .all-list img{
+	border-radius: 0.05rem;
+	width: 2.49rem;
+	height: 3.56rem;
+}
+
+.guoman-wrapper .all p{
+	width:0.48rem;
+	height:0.35rem;
+	line-height:0.36rem;
+	opacity:1;
+	position: absolute;
+	left: 1.52rem;
+	top: 5.98rem;
+}
+
+.blurify{
+	-webkit-filter: blur(0.1rem); 
+	-moz-filter: blur(0.1rem);
+	-ms-filter: blur(0.1rem);    
+	filter: blur(0.1rem);
+}
+
+.guoman-wrapper .describe{
+	width: 1.22rem;
+	height: 0.8rem;
+	position: absolute;
+	top: 1.48rem;
+	right: 0.93rem;
+	bottom: 1.88rem;
+	left: 0.94rem;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+
+.on{
+	opacity: 1;
+	transition: opacity 1s; 
+}
+
+.img a{
+	color:rgba(255,255,255,1);
 }

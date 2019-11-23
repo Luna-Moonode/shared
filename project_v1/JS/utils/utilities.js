@@ -3,6 +3,7 @@ var viewport_height = viewport.clientHeight;
 var font_size = 100 * viewport_height / 1080;
 viewport.style.fontSize = font_size.toFixed(1) + 'px';
 
+
 function XHR() {
     // XHR构造函数，用于创建本机ajax请求
     this.URL_ROOT = 'http://127.0.0.1:8000/';

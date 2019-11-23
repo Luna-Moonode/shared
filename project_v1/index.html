@@ -8,22 +8,135 @@
     <title>国漫崛起</title>
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/index.css">
-    <script src="./JS/vue.js"></script>
+	<script src="./JS/utils/vue.js"></script>
+	<script type="text/javascript" src="JS/utils/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="header">
+		<div id="guoman-list">国漫列表</div>
         <div class="nav">
             <ul>
                 <div class="underline" :class="[{nav0: nav0}, {nav1: nav1}, {nav2: nav2}]"></div>
                 <li id="header-li-0" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">首页</li>
-                <li id="header-li-1" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">时间轴</li>
-                <li id="header-li-2" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">关于</li>
+                <li id="header-li-1" @mouseenter="mouseenterli" @mouseleave="mouseleaveli" onclick="location.href='time.html'">时间轴</li>
+                <li id="header-li-2" @mouseenter="mouseenterli" @mouseleave="mouseleaveli">游戏</li>
             </ul>
         </div>
     </div>
-    <script src="./JS/utilities.js"></script>
+	
+	<div class="guoman-wrapper">
+		<div class="recommend">
+			<p>推荐</p>
+			<ul class="recommend-list">
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/dsgl-card.png" >
+						<div class="describe">大圣归来2015.07.10</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/nz-card.png" >
+						<div class="describe">哪吒之魔童降世2019.07.26</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/dyht-card.png" >
+						<div class="describe">大鱼海棠2016.07.08</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/lxh-card.png" >
+						<div class="describe">罗小黑战记2019.09.12</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="all">
+			<p>全部</p>
+			<ul class="all-list">
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+				<li class="img">
+					<a href="">
+						<img src="img/guoman-list/bsyq-card.png">
+						<div class="describe">白蛇缘起2019.01.11</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+    <script src="./JS/utils/utilities.js"></script>
     <script src="./JS/index.js"></script>
+
 </body>
 
 </html>

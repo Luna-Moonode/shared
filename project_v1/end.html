@@ -7,15 +7,19 @@
     <title>The End</title>
     <link rel="stylesheet" href="./CSS/reset.css">
     <link rel="stylesheet" href="./CSS/end.css">
+    <link rel="stylesheet" type="text/css" href="./CSS/font.css"/>
 </head>
 <body>
     <div id="wrapper">
-        <p class="theend">The End</p>
+        <p class="theEnd">The End</p>
         <p class="name">请输入你的名字：</p>
         <input type="text" class="input">
-        <button class="button">确定</button>
+		<div class="underline"></div>
+        <button class="button" onclick="f()">确定</button>
     </div>
-    <script src="./JS/utilities.js"></script>
+
+    <script src="./JS/utils/utilities.js"></script>
+	<script type="text/javascript" src="./JS/utils/jquery.min.js"></script>
     <script src="./JS/end.js"></script>
 </body>
 </html>

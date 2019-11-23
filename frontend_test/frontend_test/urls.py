@@ -20,6 +20,8 @@ from demo.views import *
 
 
 urlpatterns = [
-    url(r'^rank/$', RankView.as_view())
+    url(r'^api/rank/$', RankView.as_view()),
+    url(r'^api/outcome/$', OutcomeView.as_view()),
+    url(r'^api/img/$', ImgView.as_view()),
 ]
 
