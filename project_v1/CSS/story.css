@@ -1,3 +1,6 @@
+@import './utils/font.css';
+@import './utils/keyframes.css';
+
 body {
     background-image: url(../img/dyht.png);
     background-size: 100% 17.06rem;

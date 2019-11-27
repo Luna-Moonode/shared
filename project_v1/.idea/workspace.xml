@@ -11,7 +11,7 @@
   <component name="ProjectId" id="1Tnc8GkuMyDGY3uHJEjfx1APOQB" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CSS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -34,11 +34,6 @@
     <configuration name="finalpage.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/JS/finalpage.js" working-dir="$PROJECT_DIR$/JS">
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.finalpage.js" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -59,6 +54,12 @@
       <workItem from="1574397108083" duration="7937000" />
       <workItem from="1574431284804" duration="9491000" />
       <workItem from="1574470708677" duration="15896000" />
+      <workItem from="1574568429939" duration="516000" />
+      <workItem from="1574651015627" duration="6173000" />
+      <workItem from="1574675453793" duration="13998000" />
+      <workItem from="1574744047096" duration="9000" />
+      <workItem from="1574744737950" duration="12824000" />
+      <workItem from="1574820178641" duration="2128000" />
     </task>
     <servers />
   </component>

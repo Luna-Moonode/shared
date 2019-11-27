@@ -1,164 +1,98 @@
-@import './font.css';
+@import './utils/font.css';
+@import './utils/keyframes.css';
 
-html{
-	width: 100%;
-	height: 100%;
+.bg-blur {
+	background-image: url(../img/background-mask.png);
+	background-size: 118% 122%;
+	background-position: -1.4rem -1.2rem;
+	background-attachment: fixed;
+	overflow: hidden;
+	transition: background 1s;
 }
 
-body {
-	top: 0;
-	width: 100%;
-	height: 100%;
-    background-image: url(../img/homeback.png);
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    overflow: hidden;
-}
-
-.bg-blur{
-	backdrop-filter : blur(0.15rem);
-	background-color: rgba(211,211,211,0.253);
-}
-
-#header {
-    height: 0.725rem;
-    font-size: 0.24rem;
-    font-family: SourceHanSerifCN-Medium;
-    font-weight: 500;
-    color: #FBFAFA;
-}
-
-#header #guoman-list{
-	width:0.96rem;
-	height:0.35rem;
-	font-size:0.24rem;
-	font-family:SourceHanSerifCN-Medium;
-	font-weight:500;
-	line-height:0.36rem;
-	color:rgba(255,255,255,1);
-	opacity:1;
-	position: absolute;
-	left: 1.52rem;
-	top: 0.37rem;
-}
-
-#guoman-list:hover{
-	cursor: pointer;
-}
-
-#header .nav {
-    margin: 0 auto;
-    width: 3.72rem;
-}
-
-#header .nav ul {
-    position: relative;
-    margin-top: 0.34rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-#header .nav ul li {
-    height: 0.35rem;
-    line-height: 0.35rem;
-    text-align: center;
-    cursor: pointer;
-}
-
-#header .nav ul .underline {
-    position: absolute;
-    margin-top: 0.34rem;
-    height: 0;
-    width: 0.78rem;
-    border: 0.02rem solid #FAF5CF;
-}
-
-#header .nav ul .nav0 {
-    margin-left: -0.17rem;
-    transition: margin-left 0.3s;
-}
-
-#header .nav ul .nav1 {
-    margin-left: 1.45rem;
-    transition: margin-left 0.3s;
-}
-
-#header .nav ul .nav2 {
-    margin-left: 3.1rem;
-    transition: margin-left 0.3s;
-}
-
-.guoman-wrapper{
-	font-size:0.24rem;
-	font-family:SourceHanSerifCN-Medium;
-	color:rgba(255,255,255,1);
-	font-weight:500;
+.guoman-wrapper {
+	/* position: absolute; */
+	font-size: 0.24rem;
+	font-family: SourceHanSerifCN-Medium;
+	/* color: rgb(190, 86, 86); */
+	color: #FFFFFF;
+	font-weight: 500;
 	opacity: 0;
-	transition: opacity 1s;
+	transform: scale(0);
+	left: 1rem;
+	transition: opacity 0.8s, transform 0.8s;
 }
-
-.guoman-wrapper .recommend p{
-	width:0.48rem;
-	height:0.35rem;
-	line-height:0.36rem;
-	opacity:1;
+.on {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.8s, transform 0.8s;
+}
+.guoman-wrapper .recommend p {
+	width: 0.48rem;
+	height: 0.35rem;
+	line-height: 0.36rem;
+	opacity: 1;
 	position: absolute;
 	left: 1.52rem;
 	top: 1.56rem;
 }
 
-.guoman-wrapper .recommend-list{
+.guoman-wrapper .recommend-list {
 	height: 4.16rem;
 	position: absolute;
 	left: 0.84rem;
 	top: 1.89rem;
 }
 
-.guoman-wrapper .all-list{
+.guoman-wrapper .all-list {
 	height: 4.16rem;
 	position: absolute;
 	left: 0.84rem;
 	top: 6.33rem;
 }
 
-.guoman-wrapper .recommend-list li, .guoman-wrapper .all-list li{
+.guoman-wrapper .recommend-list li,
+.guoman-wrapper .all-list li {
 	width: 2.49rem;
 	height: 3.56rem;
 	/* background-color: #696969; */
 	float: left;
 	/* margin-right: 0.29rem; */
-	padding: 0.3rem ;
+	padding: 0.3rem;
 	position: relative;
 }
 
-.guoman-wrapper .all-list li{
+.guoman-wrapper .all-list li {
 	margin-bottom: 0.3rem;
 }
 
-.guoman-wrapper .recommend-list img, .guoman-wrapper .all-list img{
+.guoman-wrapper .recommend-list img,
+.guoman-wrapper .all-list img {
 	border-radius: 0.05rem;
 	width: 2.49rem;
 	height: 3.56rem;
 }
 
-.guoman-wrapper .all p{
-	width:0.48rem;
-	height:0.35rem;
-	line-height:0.36rem;
-	opacity:1;
+.guoman-wrapper .all p {
+	width: 0.48rem;
+	height: 0.35rem;
+	line-height: 0.36rem;
+	opacity: 1;
 	position: absolute;
 	left: 1.52rem;
 	top: 5.98rem;
 }
 
-.blurify{
-	-webkit-filter: blur(0.1rem); 
+.blurify {
+	-webkit-filter: blur(0.1rem);
 	-moz-filter: blur(0.1rem);
-	-ms-filter: blur(0.1rem);    
+	-ms-filter: blur(0.1rem);
 	filter: blur(0.1rem);
+	transform: scale(1.05);
+	transition: filter 0.3s, transform 0.3s;
 }
 
-.guoman-wrapper .describe{
+.guoman-wrapper .describe {
 	width: 1.22rem;
 	height: 0.8rem;
 	position: absolute;
@@ -170,11 +104,6 @@ body {
 	transition: opacity 0.5s;
 }
 
-.on{
-	opacity: 1;
-	transition: opacity 1s; 
-}
-
-.img a{
-	color:rgba(255,255,255,1);
+.img a {
+	color: rgba(255, 255, 255, 1);
 }

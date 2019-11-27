@@ -1,12 +1,12 @@
-@import './font.css';
+@import url(./utils/font.css);
+@import url(./utils/keyframes.css);
 
 body {
     background-image: url(../img/homeback.png);
     background-size: 105.3% 102%;
     background-position: -0.2rem -0.02rem;
     background-attachment: fixed;
-    overflow-x: hidden;
-    transition: 1s backgronund-image;
+    transition: 1s background-image;
 }
 
 #header {
@@ -38,7 +38,7 @@ body {
 #header .nav ul {
     position: fixed;
     z-index: 2;
-    margin-top: 0.34rem;
+    padding-top: 0.34rem;
 }
 
 #header .nav ul li {
@@ -73,24 +73,6 @@ body {
     transition: margin-left 0.3s;
 }
 
-@font-face {
-    font-family: 'iconfont';
-    src: url('../font/iconfont.eot');
-    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
-        url('../font/iconfont.woff2') format('woff2'),
-        url('../font/iconfont.woff') format('woff'),
-        url('../font/iconfont.ttf') format('truetype'),
-        url('../font/iconfont.svg#iconfont') format('svg');
-}
-
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 1.6rem;
-    font-style: normal;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
 #arrow {
     position: absolute;
     top: 9.5rem;
@@ -104,12 +86,14 @@ body {
     cursor: pointer;
     transform: scale(1);
     transition: top 0.5s, transform 0.5s;
+    animation: toAndFro 2s infinite;
 }
 
 #arrow:hover {
     top: 9.7rem;
     transform: scale(1.1);
     transition: top 0.5s, transform 0.5s;
+    animation: to 0.25s;
 }
 
 /* body bg classes */
@@ -118,32 +102,44 @@ body {
     transition: 1s background-image;
 }
 
+.bg-game {
+    overflow: auto;
+    background-image: url(../img/background.png);
+    transition: 1s background-image;
+}
+
 .bg-lxh {
+    overflow: auto;
     background-image: url(../img/time/lxh-time.png);
     transition: 1s background-image;
 }
 
 .bg-nz {
+    overflow: auto;
     background-image: url(../img/time/nz-time.png);
     transition: 1s background-image;
 }
 
 .bg-bs {
+    overflow: auto;
     background-image: url(../img/time/bs-time.png);
     transition: 1s background-image;
 }
 
 .bg-dyht {
+    overflow: auto;
     background-image: url(../img/time/dyht-time.png);
     transition: 1s background-image;
 }
 
 .bg-dsgl {
+    overflow: auto;
     background-image: url(../img/time/dsgl-time.png);
     transition: 1s background-image;
 }
 
 .bg-bottom {
+    overflow: auto;
     background-image: url(../img/bg-bottom.png);
     transition: 1s background-image;
 }

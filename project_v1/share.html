@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Final</title>
-    <link rel="stylesheet" href="./CSS/reset.css">
-    <link rel="stylesheet" href="./CSS/finalpage.css">
+    <link rel="stylesheet" href="./CSS/utils/reset.css">
+    <link rel="stylesheet" href="./CSS/share.css">
     <script src="./JS/utils/utilities.js"></script>
     <script src="./JS/utils/vue.js"></script>
     <script src="./JS/utils/jquery.min.js"></script>
@@ -24,10 +24,9 @@
                 <a href="">排行榜</a>
                 <a href="">时间轴</a>
             </div>
-            <!-- img是需要后端数据来改变的，现在先弄一个静态的 -->
-            <div class="imgarea" id="imgarea">
-                <!-- 动态改变的background -->
+            <div class="imgarea">
                 <img :src="bgimgsrc" alt="" class="bgimg">
+                <img :src="bgimgsrc_copy" alt="" class="bgimg" id="flyer">
                 <div class="left">
                     <p>{{ username }}的前世是</p>
                 </div>
@@ -35,24 +34,21 @@
                     <ul>
                         <li>
                             <span class="text">我的分数</span>
-                            <!-- 动态改变的分数 -->
                             <span class="score">{{ score }}</span>
                         </li>
                         <li>
                             <span class="text">我的排行</span>
-                            <!-- 动态改变的排行 -->
                             <span class="score">{{ rank }}</span>
                         </li>
                     </ul>
                     <span class="bottomp">扫码查看你的前世今生</span>
-
                     <img src="./img/qrcode.png" alt="" id="innerqrcode">
                 </div>
             </div>
             <div class="squarearea">
-                <div :style="rightimgsrc_1" id="1"></div>
-                <div :style="rightimgsrc_2" id="2"></div>
-                <div :style="rightimgsrc_3" id="3"></div>
+                <div :style="rightimgsrc_1" id="0"></div>
+                <div :style="rightimgsrc_2" id="1"></div>
+                <div :style="rightimgsrc_3" id="2"></div>
             </div>
         </div>
 
@@ -60,7 +56,7 @@
     <div class="download">
         <div>点击下载图片</div>
     </div>
-    <script src="./JS/finalpage.js"></script>
+    <script src="./JS/share.js"></script>
 </body>
 
 </html>

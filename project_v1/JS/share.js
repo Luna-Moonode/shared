@@ -33,9 +33,16 @@ let vm_final = new Vue({
         score: 0,
         rank: 0,
         bgimgsrc: '',
-        rightimgsrc_1: {'background-image': ''},
-        rightimgsrc_2: {'background-image': ''},
-        rightimgsrc_3: {'background-image': ''},
+        bgimgsrc_copy: '',
+        rightimgsrc_1: {
+            'background-image': ''
+        },
+        rightimgsrc_2: {
+            'background-image': ''
+        },
+        rightimgsrc_3: {
+            'background-image': ''
+        },
     }
 });
 
@@ -46,13 +53,9 @@ let vm_final = new Vue({
 // let username = document.cookie.match(/username=.[^; ]+;?/)[0];
 // username = username.split('=')[1].slice(0, -1);
 
-let previous;
+let previous,
+    b64imgArr = [];
 
-// test area
-previous = 'dyht';
-// test area
-
-let b64imgArr = [];
 let xhr = new XHR();
 xhr.get('api/outcome/', {
     // username: username
@@ -85,11 +88,21 @@ let rank = document.getElementsByClassName('score')[1],
     innerqrcode = document.getElementById('innerqrcode'),
     bottomp = document.getElementsByClassName('bottomp')[0],
     fatherdiv = document.querySelector('#wrapper .imgarea .right'),
-    rightimgdiv = document.querySelector('#wrapper .squarearea');
+
+    rightimgdiv = document.querySelector('#wrapper .squarearea'),
+    flyer = document.getElementById('flyer'),
+    lefttext = document.querySelector('#wrapper .left'),
+    righttext = document.querySelector('#wrapper .right'),
+    bgimgwrapper = document.querySelector('#wrapper .imgarea'),
+    bgimg = document.querySelector('#wrapper .bgimg');
+    
 
 // 截图功能
+let lock_download = 0;
 $(".download").on("click", function () {
-    var shareContent = $("#imgarea")[0];
+    if (lock_download) return
+    lock_download = 1;
+    var shareContent = $(".imgarea")[0];
     var width = shareContent.offsetWidth;
     var height = shareContent.offsetHeight;
     var canvas = document.createElement("canvas");
@@ -126,22 +139,43 @@ $(".download").on("click", function () {
         alink.click();
         fatherdiv.appendChild(bottomp);
         fatherdiv.appendChild(innerqrcode);
+        lock_download = 0;
     });
 });
 
-let arr = [
-    'first',
-    'second',
-    'third'
-];
-
 // 改变背景图
-rightimgdiv.onclick = (e) => {
-    if (e.target.id == 1) {
-        vm_final.bgimgsrc = b64imgArr[0];
-    } else if (e.target.id == 2) {
-        vm_final.bgimgsrc = b64imgArr[1];
-    } else if (e.target.id == 3) {
-        vm_final.bgimgsrc = b64imgArr[2];
-    }
-};
+lock_fly = 0;
+rightimgdiv.addEventListener('click', (e) => {
+    let id = parseInt(e.target.id);
+    if (lock_fly || e.target === rightimgdiv || b64imgArr[id] === vm_final.bgimgsrc) return
+    lock_fly = 1;
+    lock_download = 1;
+    bgimg.classList.add('disappear');
+    lefttext.classList.add('disappear');
+    righttext.classList.add('disappear');
+    vm_final.bgimgsrc_copy = b64imgArr[id];
+    flyer.classList.add(`bgselect-${id}`);
+    flyer.addEventListener('animationend', () => {
+        bgimg.classList.remove('disappear');
+        lefttext.classList.remove('disappear');
+        righttext.classList.remove('disappear');
+        bgimg.classList.add('emerge');
+        lefttext.classList.add('emerge');
+        righttext.classList.add('emerge');
+        flyer.classList.remove(`bgselect-${id}`)
+        vm_final.bgimgsrc = b64imgArr[id]
+        lock_fly = 0;
+        lock_download = 0;
+    })
+});
+
+let lock_rightimgdiv = 0;
+rightimgdiv.addEventListener('click', function (e) {
+    if (lock_rightimgdiv) return
+    e.target.classList.add('click_magnify');
+    lock1 = 1;
+    setTimeout(() => {
+        e.target.classList.remove('click_magnify');
+        lock_rightimgdiv = 0;
+    }, 250)
+});

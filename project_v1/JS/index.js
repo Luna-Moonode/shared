@@ -1,34 +1,26 @@
-let vm_header = new Vue({
-    el: '#header',
-    data: {
-        nav0: true,
-        nav1: false,
-        nav2: false
-    },
-    methods: {
-        mouseenterli(e) {
-            this.nav0 = false;
-            this.nav1 = false;
-            this.nav2 = false;
-            this['nav' + e.target.id.match(/\d+/)[0]] = true;
-        },
-        mouseleaveli(e) {
-            this.nav0 = true;
-            this.nav1 = false;
-            this.nav2 = false;
-        }
-    }
-});
-
-$(document).ready(function(){
-	let $wrapper = $(".guoman-wrapper");
-	let $guomanList = $("#guoman-list");
-	let $body = $("body");
-	let $recommendCard = $(".guoman-wrapper .recommend-list li");
-	let $recommendCardImg = $(".guoman-wrapper .recommend-list li img");
-	let $describe = $(".guoman-wrapper .describe");
+$(document).ready(function () {
+	let $wrapper = $(".guoman-wrapper"),
+		$guomanList = $("#list"),
+		$body = $("body"),
+		$recommendCard = $(".guoman-wrapper .recommend-list li"),
+		$recommendCardImg = $(".guoman-wrapper .recommend-list li img"),
+		$describe = $(".guoman-wrapper .describe"),
+		$recommendList = $(".recommend-list");
+	//设置recommendList的宽度
+	$recommendList.width( 3.09*($recommendCard.length) + "rem" );
+	// $recommendCardImg
 	//国漫列表 点击事件
+	let count = 0;
 	$guomanList.click(function(){
+		if (count % 2 === 0) {
+			arrowDisappear();
+			lock_header = 1;
+		} else {
+			arrowAppear();
+			lock_header = 0;
+		}
+		count ++;
+		if (lock_guomanList) return;
 		$wrapper.toggleClass("on");
 		$body.toggleClass("bg-blur");
 	});
@@ -57,23 +49,32 @@ $(document).ready(function(){
 	}
 	
 	let $allList = $(".all-list");
+	let windowWidth = $(window).width(); //浏览器当前窗口可视区域宽度
 	$allList.width( 3.09*($allCard.length) + "rem" );
 	
-	let allListInt
-	$('.all-list').hover(function(e) {  
-	     var positionX=e.pageX-$(this).offset().left; //获取当前鼠标相对img的X坐标  
-	     // var positionY=e.pageY-$(this).offset().top; //获取当前鼠标相对img的Y坐标  
-	     // console.log(positionX+'   '+positionY);  
-		 if(positionX > 700){
+	let allListInterval;
+	let allListLeftRefresh;
+	let positionX;
+	$(".all-list").mousemove(function(e){
+		e = e || window.event;
+		positionX=e.clientX; //获取当前鼠标的X坐标
+	});
+	$('.all-list').hover(function(e) {
+		 e = e || window.event;
+	     positionX=e.clientX; //获取当前鼠标的X坐标 
+		 let allListLeft;
+		 allListInterval =  setInterval(function(){
 			 allListLeft = $(".all-list").offset().left;
-			 allListInt =  setInterval(function(){
-				$(".all-list").css("left", allListLeft-150+"px");
-				console.log(allListLeft);
-			 },500);
-		 }
+			 if( (positionX/windowWidth) > 0.9){
+				 allListLeft = allListLeft - 1;
+			 }
+			 else if( (positionX/windowWidth) < 0.1){
+				 allListLeft = allListLeft + 1;
+			 }
+			 $(".all-list").css("left", allListLeft + "px");
+		 }, 10)
 	 },function(){
-		 clearInterval(allListInt);
+		 clearInterval(allListInterval);
 	 });
-
 });
 

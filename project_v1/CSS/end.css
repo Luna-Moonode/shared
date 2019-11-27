@@ -1,4 +1,5 @@
-@import 'font.css';
+@import './utils/font.css';
+@import './utils/keyframes.css';
 
 body {
     background-image: url(../img/background.png);
